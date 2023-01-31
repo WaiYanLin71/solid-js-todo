@@ -3,7 +3,7 @@ import { createMemo, createSignal, For } from "solid-js";
 
 function App() {
 
-  const [data, setData] = createSignal([]);
+  const [data, setData] = createSignal(JSON.parse(localStorage.getItem('solid-todo')) || []);
   const [status, setStatus] = createSignal(null)
 
   const totoMemo = createMemo(() => {
