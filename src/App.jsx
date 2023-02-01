@@ -24,7 +24,12 @@ function App() {
   })
 
   const handleCheck = (id, { target: { checked } }) => {
-    dispatch(() => data().map((todo) => ({ ...todo, completed: todo.id === id ? checked : todo.completed })))
+    dispatch(() => data().map((todo) => {
+      if (todo.id === id) {
+        return { ...todo, completed: checked }
+      }
+      return todo;
+    }))
   }
 
   const handleDelete = (id) => {
